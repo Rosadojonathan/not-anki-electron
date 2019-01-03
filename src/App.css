@@ -127,3 +127,28 @@ textarea {
   border-radius:20px;
   margin:auto;
 }
+
+.emoji {
+  font-size:56px;
+}
+
+.wrong {
+  background-color: rgb(192, 54, 45);
+}
+
+.easy {
+  background-color: #62A87C;
+}
+
+.very-easy {
+  background-color: rgb(0, 88, 15);
+}
+
+.answers {
+  display: flex;
+}
+
+.recto-verso {
+  background-color: whitesmoke;
+  color:black; 
+}

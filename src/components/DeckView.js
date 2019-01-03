@@ -38,7 +38,7 @@ export class DeckView extends Component {
                     className="btn no-cards-btn"
                     >No cards left</button>          
                         :
-                    <Link  to=""> <button className="btn quiz-btn">Learning Session</button></Link>
+                    <Link  to={`/quiz/${deck}`}> <button className="btn quiz-btn">Learning Session</button></Link>
                     }
             </div>
       </div>

@@ -6,6 +6,7 @@ import DeckView from './components/DeckView';
 import AddCard from './components/AddCard';
 import AddCardNoDeck from './components/AddCardNoDeck';
 import AddDeck from './components/AddDeck';
+import Quiz from './components/Quiz';
 
 const Router = () => (
     <BrowserRouter>
@@ -13,9 +14,10 @@ const Router = () => (
             <Route exact path='/' component={DeckList}/>
             <Route path='/addcard' component={AddCard}/>
             <Route path='/addcard-nodeck' component={AddCardNoDeck}/>
-            <Route path='/adddeck' component={AddDeck}/>
-            
+            <Route path='/adddeck' component={AddDeck}/>           
             <Route path='/decks/:deck' component={DeckView}/>
+            <Route path='/quiz/:deck' component={Quiz}/>
+            
             
         </Switch>   
     </BrowserRouter>

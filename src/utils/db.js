@@ -20,14 +20,6 @@ export default class DB {
         }
     }
 
-    async getDecks() {
-        let allDecks = await this.db.allDocs({
-            include_docs: true
-        });
-        let decks = {}
-        // allDecks.rows.forEach(n => decks[title] = n.doc)
-    }
-
     async addCardToDeck(deckName, card){
         const { recto, verso } = card;
         let data = await this.db.get('jonathanrosado')
@@ -50,5 +42,15 @@ export default class DB {
         data.decks = {...data.decks, ...newDeck }
         console.log(data)
         return await this.db.put(data);
+    }
+
+    async nextScheduleSetter(deck,id, multiplier){
+        let data = await this.db.get('jonathanrosado')
+        const index = data.decks[deck].vocab.map((e) =>  {return e.id }).indexOf(id)
+        data.decks[deck].vocab[index].interval === 0 ? data.decks[deck].vocab[index].interval = 1 : data.decks[deck].vocab[index].interval = data.decks[deck].vocab[index].interval;
+        data.decks[deck].vocab[index].interval *= multiplier;
+        data.decks[deck].vocab[index].dueDate += data.decks[deck].vocab[index].interval;
+        return await this.db.put(data)
+
     }
 }
