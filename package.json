@@ -3,15 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "concurrently": "^4.1.0",
+    "pouchdb": "^7.0.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
-    "react-scripts": "2.1.2"
+    "react-redux": "^6.0.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "2.1.2",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "wait-on": "^3.2.0"
   },
+  "main": "src/electron-starter.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "react-start": "BROWSER=none $(npm bin)/react-scripts start",
+    "electron-start": "ELECTRON_DEV=1 $(npm bin)/electron .",
+    "start": "$(npm bin)/concurrently 'npm run react-start' '$(npm bin)/wait-on http://localhost:3000/ && npm run electron-start'",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron": "electron ."
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -21,5 +31,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "electron": "^4.0.0"
+  }
 }
