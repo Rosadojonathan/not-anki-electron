@@ -1,13 +1,13 @@
 # Flashcards - Electron - App
 
-I tried to recreate a MVP of the popular flashcard app Anki using Electron, React, Redux and PouchDB. I've always found Anki very useful for language learning and recoding the project with Electron was a fun project.
+I tried to recreate a MVP of the popular flashcard app Anki using Electron, React, Redux and PouchDB / CouchDB for syncing with the React-Native app counterpart. I've always found Anki very useful for language learning and recoding the project with Electron was a fun project.
 
 ## Tech Stack
 
 - Electron
 - React
 - Redux
-- PouchDB
+- PouchDB / CouchDB
 
 ## Screenshots 
 <img src="/screenshots/not-anki-electron-1.jpg" width="300" />
