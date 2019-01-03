@@ -8,7 +8,7 @@ body{
 }
 .container {
   margin:auto;
-  width:280px;
+  width:300px;
   text-align: center;
   height:100vh;
 }
@@ -26,6 +26,18 @@ input {
   box-shadow: 0 8px 12px 6px rgba(0,0,0,0.12);
   margin-top:20px;
   padding-bottom:20px;
+}
+
+.card {
+  background-color: ghostwhite;
+  margin:8px;
+  height:125px;
+  width:100%;
+  border-radius:12px;
+  box-shadow: 0 8px 12px 6px rgba(0,0,0,0.12);
+  margin-top:20px;
+  padding-bottom:20px;
+  position:relative;
 }
 
  .view {
@@ -57,11 +69,18 @@ input {
   width:110px;
   border-radius:12px;
   padding:5px;
+  border:none;
+  outline:none;
 }
+
 
 .deck-btn {
   background-color:#043f83;
   text-decoration: none;
+}
+.deck-btn:hover{
+  background-color:#023064;
+
 }
 
 .no-cards-btn {
@@ -75,16 +94,26 @@ input {
   height:50px;
   width:150px;
 }
+.quiz-btn:hover{
+  background-color:#023064;
+}
 
 .refresh-btn {
   margin-top:30px;
   background-color: #62A87C;
+}
+.refresh-btn:hover{
+  background-color: rgb(75, 129, 95);
 }
 
 .cancel-btn {
   margin-top:20px;
   background-color: rgb(192, 54, 45);
   margin-left:15px;
+}
+.cancel-btn:hover {
+  background-color: rgb(162, 54, 45);
+
 }
 
 .navbar {
@@ -93,6 +122,7 @@ input {
   position: sticky;
   top:0;
   display:flex;
+  z-index:10;
 }
 
 .navbar a {
@@ -135,20 +165,47 @@ textarea {
 .wrong {
   background-color: rgb(192, 54, 45);
 }
+.wrong:hover {
+  background-color: rgb(168, 50, 41);
+}
 
 .easy {
-  background-color: #62A87C;
+  background-color: #62a87c;
+} 
+.easy:hover {
+  background-color: rgb(86, 138, 105);
+
 }
 
 .very-easy {
   background-color: rgb(0, 88, 15);
 }
+.very-easy:hover{
+  background-color: rgb(1, 68, 12);
+}
 
 .answers {
   display: flex;
 }
-
+.answers button {
+  margin:3px;
+}
 .recto-verso {
-  background-color: whitesmoke;
-  color:black; 
+  background-color: rgb(205,205,205,0.3);
+  color:black;
+  margin-top:50px; 
+  bottom:25px;
+  position:absolute;
+  right:91px;
+  transition:all 0.2 ease-in-out;
+}
+
+.recto-verso:hover {
+  background-color: rgb(205,205,205,0.8);
+}
+
+.card-text {
+  font-size:20px;
+  width:90%;
+  margin:auto;
 }

@@ -38,8 +38,7 @@ export class AddCard extends Component {
 
     if(recto && verso){
       this.state.db.addCardToDeck(deck,{recto,verso}).then(
-        (value) => {
-          
+        (value) => {  
           console.log('card added :');
           console.log(value);
           let dueDate = TODAY;

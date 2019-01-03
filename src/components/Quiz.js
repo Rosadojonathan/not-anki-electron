@@ -98,10 +98,10 @@ export class Quiz extends Component {
         <React.Fragment>
         <NavBar/>
       <div className="container">
-        <div className="deck view"> 
+        <div className="card view"> 
             <p>{number} / {decksToReview}</p>
-            {!this.state.showRecto ?   <p >{deckToReviewToday[questionState].recto}</p>
-            :<p >{deckToReviewToday[questionState].verso}</p> }
+            {!this.state.showRecto ?   <p className="card-text" >{deckToReviewToday[questionState].recto}</p>
+            :<p className="card-text">{deckToReviewToday[questionState].verso}</p> }
 
             {!this.state.showRecto ? <button className="btn recto-verso"  onClick={this.showVerso}> Show Verso</button>
             :  <button className="btn recto-verso" onClick={this.showVerso}>Show Recto</button>}

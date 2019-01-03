@@ -4,6 +4,7 @@ import { initialData, TODAY } from './initialData';
 export default class DB {
     constructor(name) {
         this.db = new PouchDB(name);
+    
     }
     async initializeDB() {
         try {
@@ -14,7 +15,7 @@ export default class DB {
         }
         catch  {
             let init = await this.db.put(initialData);
-            let res = await this.db.get('jonathanrosado')
+            let res = await this.db.get('jonathanrosado');
             console.log(init);
             return res.decks;
         }
@@ -51,6 +52,11 @@ export default class DB {
         data.decks[deck].vocab[index].interval *= multiplier;
         data.decks[deck].vocab[index].dueDate += data.decks[deck].vocab[index].interval;
         return await this.db.put(data)
+    }
 
+    async sync(){
+        let sync = await PouchDB.sync('jonathanrosado','http://localhost:5984/jonathanrosado')
+        console.log(sync)
+        return sync;
     }
 }

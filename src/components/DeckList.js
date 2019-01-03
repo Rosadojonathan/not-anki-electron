@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 import DB from '../utils/db';
 import { black, white,grey, deepBlue,green,GhostWhite } from '../utils/colors'
-import { getCardsLength, getCardsToReview } from '../utils/helpers';
+import { getCardsToReview } from '../utils/helpers';
 import NavBar from './NavBar';
 
 const electron = window.require('electron');
@@ -15,7 +15,6 @@ const {ipcRenderer} = electron;
 class DeckList extends Component {
     state = {
         db: new DB('jonathanrosado'),
-
     }
 
     async componentDidMount() {
@@ -27,6 +26,13 @@ class DeckList extends Component {
     
     addCard = () => {
         ipcRenderer.send('toggle-addcard')
+    }
+
+    syncData = async () => {
+        await this.state.db.sync();
+        let decks = await this.state.db.initializeDB();
+        console.log(decks);
+        this.props.receiveAllDecks(decks)
     }
   render() {
     const { decks } = this.props
@@ -47,7 +53,7 @@ class DeckList extends Component {
 						</div>
 					)
 				})}
-            <button className="btn refresh-btn"> Refresh Data </button>        
+            <button className="btn refresh-btn" onClick={() => this.syncData()}> Sync Data </button>        
         </div>
     </React.Fragment>    
     )
